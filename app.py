@@ -14,7 +14,7 @@ import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 # Set Google API Key for Google Palm
-os.environ['GOOGLE_API_KEY'] = 'AIzaSyB-TV0TQ2sI6eGshh3_8zqKoDuoIsFxcRs'
+os.environ['GOOGLE_API_KEY'] = ''
 
 # Function to extract text from PDF files
 def get_pdf_text(pdf_docs):
