@@ -1,16 +1,20 @@
-import streamlit as st
-from PyPDF2 import PdfReader
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-import google.generativeai as palm
-from langchain.embeddings import GooglePalmEmbeddings
-from langchain.llms import GooglePalm
-from langchain.vectorstores import FAISS
-from langchain.chains import ConversationalRetrievalChain
-from langchain.memory import ConversationBufferMemory
-import os
+import streamlit as st  # Import Streamlit for building the web app
+from PyPDF2 import PdfReader  # Import PdfReader from PyPDF2 to read PDF files
+from langchain.text_splitter import RecursiveCharacterTextSplitter  # Import text splitter
+import google.generativeai as palm  # Import Google generative AI
+from langchain.embeddings import GooglePalmEmbeddings  # Import Google Palm embeddings
+from langchain.llms import GooglePalm  # Import Google Palm LLM
+from langchain.vectorstores import FAISS  # Import FAISS for vector storage
+from langchain.chains import ConversationalRetrievalChain  # Import Conversational Retrieval Chain
+from langchain.memory import ConversationBufferMemory  # Import Conversation Buffer Memory
+import os  # Import OS for environment variables
+import warnings
 
-# Set your Google API key
-os.environ['GOOGLE_API_KEY'] = 'AIzaSyB-TV0TQ2sI6eGshh3_8zqKoDuoIsFxcRs'
+# Suppress deprecation warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning)
+
+# Set Google API Key for Google Palm
+os.environ['GOOGLE_API_KEY'] = ''
 
 def get_pdf_text(pdf_docs):
     """Extract text from uploaded PDF documents."""
